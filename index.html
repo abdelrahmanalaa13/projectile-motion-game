@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projectile Motion Game</title>
+    <!-- Styles -->
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        margin: auto;
+      }
+      #controls {
+        height: 100px;
+        background: #87ceeb;
+      }
+      .form-group {
+        display: grid;
+        grid-template-columns: 100px 150px;
+        padding: 4px;
+      }
+      .btns-container {
+        padding: 4px;
+      }
+      .disabled .form-group,
+      .disabled .start {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+      .absolute-center {
+        position: absolute;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      .hints {
+        bottom: 10px;
+      }
+      .title {
+        top: 0;
+        width: 350px;
+      }
+      .disabled .title {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header" id="controls">
+      <!-- Game Controls -->
+      <div class="inputs-container">
+        <div class="form-group">
+          <label for="velocity">Velocity <small>(m/s)</small></label>
+          <input
+            type="number"
+            min="0"
+            max="100"
+            id="velocity"
+            value="50"
+            oninput="setVelocity();initDraw()"
+          />
+        </div>
+        <div class="form-group">
+          <label for="angle">Angle <small>(degree)</small></label>
+          <input
+            type="number"
+            min="0"
+            max="90"
+            id="angle"
+            value="60"
+            oninput="setAngle();initDraw()"
+          />
+        </div>
+      </div>
+      <div class="btns-container">
+        <button class="start" onclick="start()">Start</button>
+        <button class="reset" onclick="init()">reset</button>
+      </div>
+      <div class="absolute-center title">
+        <h1>Projectile Motion</h1>
+        <p>Try to shot the target using the Projectile Motion</p>
+      </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <small class="hints absolute-center"
+      >To learn more about the Projectile Motion visit
+      <a href="https://www.nagwa.com/en/videos/685158459589/" target="_blank"
+        >Nagwa</a
+      ></small>
+    <!-- /////////////////// -->
+    <!-- Game Script -->
+    <script src="./main.js"></script>
+  </body>
+</html>
