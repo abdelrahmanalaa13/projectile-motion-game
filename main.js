@@ -223,6 +223,7 @@ function draw_h_max() {
     })
   );
   midPoint = path.find((o) => o.y === maxY);
+  const maxHight = yi - midPoint.y;
   context.strokeStyle = angle_color;
   context.lineWidth = 2;
   context.beginPath();
@@ -232,7 +233,7 @@ function draw_h_max() {
   context.closePath();
   context.font = "15px Arial";
   context.fillText(
-    `The max highet = ${maxY.toFixed(2)}m`,
+    `The max highet = ${maxHight.toFixed(2)}m`,
     midPoint.x - 30,
     midPoint.y - 10
   );
