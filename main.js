@@ -8,21 +8,21 @@ const w = canvas.width;
 const h = canvas.height;
 const g = 9.8;
 
-// Set defult values
+// Set default values
 let time = 0; // time
 let ball_size = 10; // ball size
 let arrow_length = 100;
-let ground_highet = 150;
-let t_rate = 60; // how many frames will be showen ber sucend
-let xi = 50; // initiall x
-let yi = h - ground_highet; // initiall y
+let ground_hight = 150;
+let t_rate = 60; // how many frames will be shown ber second
+let xi = 50; // initial x
+let yi = h - ground_hight; // initial y
 let xpos = xi; // the changeable x
 let ypos = yi; // the changeable x
-let path = []; // will includs path ؤoordinates
+let path = []; // will includes path coordinates
 let loop; // for interval set
-let midPoint; // the center point to that have the max-highet
+let midPoint; // the center point to that have the max-hight
 
-// colores
+// colorers
 let ball_color = "red";
 let sky_color = "#87ceeb";
 let ground_color = "#268b07";
@@ -37,7 +37,7 @@ let targetX; // the X axis of the target point
 let started = false; // to check if lunched or not
 
 /**
- * To initlize and reset the whole canves elements
+ * To initlize and reset the whole canvas elements
  */
 function init() {
   restInitValues();
@@ -47,7 +47,7 @@ function init() {
 }
 
 /**
- * Resetting the main values to the defults
+ * Resetting the main values to the defaults
  */
 function restInitValues() {
   if (loop) {
@@ -98,11 +98,11 @@ function initDraw() {
 function draw_background() {
   // ground
   context.fillStyle = ground_color;
-  context.fillRect(0, yi, w, ground_highet);
+  context.fillRect(0, yi, w, ground_hight);
 
   // sky
   context.fillStyle = sky_color;
-  context.fillRect(0, 0, w, h - ground_highet);
+  context.fillRect(0, 0, w, h - ground_hight);
 }
 
 /**
@@ -137,7 +137,7 @@ function draw_angle() {
 }
 
 /**
- * drawing target details that will be shoten
+ * drawing target details that will be shotten
  */
 function draw_target() {
   context.beginPath();
@@ -174,7 +174,7 @@ function draw_target() {
   );
 }
 /**
- * calulating the target xAxis to be setted in a random postion
+ * calculating the target xAxis to be set in a random position
  * @returns targetX
  */
 function randomTarget() {
@@ -213,7 +213,7 @@ function drawFinalResults() {
 }
 
 /**
- * caculating the maxmume highet that will be reached by the ball
+ * calculating the maximum hight that will be reached by the ball
  */
 function draw_h_max() {
   const maxY = Math.min.apply(
@@ -240,7 +240,7 @@ function draw_h_max() {
 }
 
 /**
- * drow and calculate the distance between the init point and the ball after fallen
+ * draw and calculate the distance between the init point and the ball after fallen
  */
 function draw_distance() {
   context.strokeStyle = angle_color;
@@ -261,7 +261,7 @@ function draw_distance() {
 }
 
 /**
- * drow and calcualte total time to send the ball
+ * draw and calculate total time to send the ball
  */
 function draw_time() {
   const total_time = ((2 * vi * Math.sin(theta)) / g).toFixed(2);
@@ -270,12 +270,12 @@ function draw_time() {
   context.fillText(`Total Time = ${total_time}s`, xpos + 20, ypos - 20);
 }
 /**
- * checking if the ball hitted the target
+ * checking if the ball hit the target
  */
 function checkSuccess() {
-  let isSucssess = xpos.toFixed() === targetX.toFixed();
+  let isSuccess = xpos.toFixed() === targetX.toFixed();
   context.font = "40px Arial";
-  if (isSucssess) {
+  if (isSuccess) {
     context.fillStyle = ground_color;
     context.fillText("Sucess!", w / 2 - 50, 50);
   } else {
@@ -312,7 +312,7 @@ function show() {
 }
 
 /**
- * check and start the loop that drowing the path
+ * check and start the loop that drowning the path
  */
 function start() {
   if (started) {
